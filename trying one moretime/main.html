@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaHealthXR - Your AI Health Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>MetaHealthXR</span>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">JD</div>
+                <span>John Doe</span>
+            </div>
+        </header>
+        
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="nav-list">
+                <div class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-user-md"></i>
+                    <span>AI Doctor</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Health Metrics</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-brain"></i>
+                    <span>Mental Health</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Progress</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+                
+                <div class="emergency-item">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Emergency</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Banner -->
+            <div class="welcome-banner">
+                <div class="welcome-text">
+                    <h2>Welcome back, John!</h2>
+                    <p>Your AI health companion is ready to assist you today.</p>
+                </div>
+                <div class="avatar-container">
+                    <div class="ai-avatar">
+                        <i class="fas fa-robot"></i>
+                        <div class="pulse"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Emergency Alert (Conditional) -->
+            <div class="emergency-alert" id="emergencyAlert" style="display: none;">
+                <div class="emergency-content">
+                    <div class="emergency-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="emergency-text">
+                        <h3>Emergency Alert!</h3>
+                        <p>Your heart rate is critically high. Please seek medical attention immediately.</p>
+                    </div>
+                </div>
+                <button class="emergency-btn">I Need Help</button>
+            </div>
+            
+            <!-- Health Stats -->
+            <div class="health-stats">
+                <div class="stat-card heart-rate">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value" id="heartRate">--</div>
+                            <div class="stat-label">Heart Rate</div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                    </div>
+                    <div class="stat-trend">
+                        <i class="fas fa-arrow-up trend-up"></i>
+                        <span>Higher than usual</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card spo2">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value" id="spo2">--</div>
+                            <div class="stat-label">SpO2</div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-lungs"></i>
+                        </div>
+                    </div>
+                    <div class="stat-trend">
+                        <i class="fas fa-arrow-down trend-down"></i>
+                        <span>Normal range</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card blood-pressure">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value" id="bloodPressure">--/--</div>
+                            <div class="stat-label">Blood Pressure</div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                    </div>
+                    <div class="stat-trend">
+                        <i class="fas fa-arrow-up trend-up"></i>
+                        <span>Slightly elevated</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card stress">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value" id="stressLevel">--</div>
+                            <div class="stat-label">Stress Level</div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </div>
+                    <div class="stat-trend">
+                        <i class="fas fa-arrow-up trend-up"></i>
+                        <span>High stress detected</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Chat Section -->
+            <div class="ai-chat-section">
+                <div class="chat-header">
+                    <div class="chat-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="chat-title">
+                        <h3>Dr. Aria</h3>
+                        <p>Your AI Health Companion</p>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message ai-message">
+                        Hello John! I'm Dr. Aria, your AI health companion. How can I assist you today?
+                    </div>
+                    <div class="message user-message">
+                        I've been feeling a bit dizzy lately.
+                    </div>
+                    <div class="message ai-message">
+                        I notice your heart rate is slightly elevated. Have you been drinking enough water today? Dehydration can sometimes cause dizziness.
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Type your message to Dr. Aria...">
+                    <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+            
+            <!-- Metaverse Rooms Section -->
+            <div class="metaverse-section">
+                <div class="section-header">
+                    <h3>Metaverse Health Spaces</h3>
+                    <div class="view-all">View All</div>
+                </div>
+                
+                <div class="metaverse-rooms">
+                    <div class="room-card">
+                        <div class="room-icon">
+                            <i class="fas fa-clinic-medical"></i>
+                        </div>
+                        <div class="room-name">Virtual Clinic</div>
+                        <div class="room-desc">Consult with AI or human doctors</div>
+                    </div>
+                    
+                    <div class="room-card">
+                        <div class="room-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="room-name">Meditation Hall</div>
+                        <div class="room-desc">Guided sessions for relaxation</div>
+                    </div>
+                    
+                    <div class="room-card">
+                        <div class="room-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="room-name">Support Groups</div>
+                        <div class="room-desc">Connect with others</div>
+                    </div>
+                    
+                    <div class="room-card">
+                        <div class="room-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="room-name">Fitness Center</div>
+                        <div class="room-desc">Virtual workouts</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="script2.js"></script>
+</body>
+</html>
